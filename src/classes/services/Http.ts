@@ -1,4 +1,4 @@
-import { AxiosInstance, AxiosRequestConfig } from 'axios'
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import ApiCore from '../ApiCore'
 import { isObject, replaceTokens } from '../../utils'
 
@@ -29,7 +29,7 @@ export default class Http {
    * @param   data      Any optional data to pass to the endpoints
    * @returns {Promise<any>}
    */
-  request (instance: ApiCore, config: AxiosRequestConfig, data: any = null) {
+  request (instance: ApiCore, config: AxiosRequestConfig, data: any = null): Promise<AxiosResponse<any>> {
     // reset
     instance.error = null
     instance.loading = true
